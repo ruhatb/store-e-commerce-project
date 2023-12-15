@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .align-element {
+    @apply mx-auto max-w-5xl px-8;
+  } 
+
+  .btn-x {
+    @apply bg-transparent hover:bg-blue-200 text-purple-300 border  hover:border-transparent rounded flex ;
+  }
+
+  .badge {
+    position: absolute;
+    top: -0.3em;
+    right: -0.3em;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 0.2em 0.5em;
+    font-size: 0.8em;
+  }
+
+}

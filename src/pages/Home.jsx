@@ -1,10 +1,19 @@
 import React from 'react'
+import { Outlet } from 'react-router-dom';
+import { Navbar } from '../components';
 
 const Home = () => {
   return (
-    <div>
+    <>  
+    <nav >
+    <span className='text-3xl' > 
+    <Navbar />
+     </span>
       
-    </div>
+    </nav>
+
+    <Outlet />
+    </>
   )
 }
 
