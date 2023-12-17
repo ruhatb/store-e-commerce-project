@@ -29,7 +29,7 @@ children:[
 
   },
  
-  { path:"/ blog",
+  { path:"/blog",
   element: <Blog/>,
 
   },
@@ -42,13 +42,13 @@ children:[
 },
   
 
-  { path:"/ login",
+  { path:"/login",
   element: <Login />,
 
   },
 
  
-  { path:"/ register",
+  { path:"/register",
   element: <Register/>,
 
   },
