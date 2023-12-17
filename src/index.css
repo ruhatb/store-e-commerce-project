@@ -11,14 +11,12 @@
     @apply bg-transparent hover:bg-blue-200 text-purple-300 border  hover:border-transparent rounded flex ;
   }
 
-  .badge {
-    @apply absolute top-0 right-0;
-    background-color: red;
-    color: white;
-    border-radius: 50%;
-    padding: 0.2em 0.5em;
-    font-size: 0.8em;
+  
+  .card {
+    @apply w-[200px] h-[150px] bg-gray-300 border border-gray-400 rounded-lg flex items-center justify-center text-lg;
   }
+  
   
 
 }
+
