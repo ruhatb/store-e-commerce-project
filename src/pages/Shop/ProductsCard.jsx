@@ -9,7 +9,7 @@ import carditem2 from "../../assets/ProductCard/carditem2.png" ;
 import carditem3 from "../../assets/ProductCard/carditem3.png" ;
 import carditem4 from "../../assets/ProductCard/carditem4.png" ;
 
-function Products() {
+function Products({ id, imageSrc, title, department, originalPrice, discountedPrice }) {
     return (
       <div className="flex justify-center items-center  pt-8 ">
         <div className="flex flex-col w-full items-center gap-12">

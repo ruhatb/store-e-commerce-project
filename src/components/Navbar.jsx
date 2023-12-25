@@ -10,19 +10,20 @@ import Navlinks from "./Navlinks";
 const Navbar = () => {
   return (
     <nav className="bg-base-200">
-      <div className="navbar align-element">
+      <div className="navbar align-element  ">
         <div className="navbar-start">
           {/* title /-*/}
           <NavLink
             to="/"
-            className="hidden lg:flex btn btn-primary text-5xl items-center"
+            className="hidden lg:flex btn btn-primary text-5xl items-center "
           >
             Bandage
           </NavLink>
+          
 
-           <div className='navbar-center flex'>
-               <ul className='menu menu-horizontal grid grid-cols-6 gap-2 pl-6'>
-               <Navlinks className="flex" />
+           <div className='navbar-center sm:text-xl flex-col'>
+               <ul className='menu menu-horizontal grid grid-cols-6 gap-2 pl-6 sm:text-xl flex-col'>
+               <Navlinks className="flex sm:text-xl flex-col " />
                </ul>
             </div> 
 <NavLink className="flex py-1 gap-1 justify-end ">  
