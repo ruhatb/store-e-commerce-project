@@ -5,9 +5,9 @@ const urls = [
     { id: 1, url : "/", text : "home" },
     { id: 2, url : "/shop", text : "shop" },
     { id: 3, url : "/about", text : "about" },
-    { id: 4, url : "blog", text : " blog"},
-    { id: 5, url : "contact", text : "contact" },
-    { id: 6, url : "pages", text : "pages" },
+    { id: 4, url : "/blog", text : " blog"},
+    { id: 5, url : "/contact", text : "contact" },
+    { id: 6, url : "/pages", text : "pages" },
 ];
 
 const Navlinks = () => {

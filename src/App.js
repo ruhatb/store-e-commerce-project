@@ -1,68 +1,47 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-
-import { About, Shop, Register, Contact , Login, Blog, Home, Pages, Errors } from "./pages";
-
+import Footer from "./layout/Footer";
+import Header from "./layout/Header";
+import { Navbar } from "./components";
+import {
+  About,
+  Shop,
+  Register,
+  Contact,
+  Login,
+  Blog,
+  Home,
+  Pages,
+  Errors,
+} from "./pages";
 
 const router = createBrowserRouter([
-  { path:"/",
-  element: <Home />,
-  errorElement: < Errors/>,
-children:[
-  
-
-  { path:"/about",
-  element: <About />,
-  errorElement: <Errors />,
-  
-
-
+  {
+    path: "/",
+    element: <Home />,
+    errorElement: <Errors />,
   },
 
-  
-  { path:"/shop",
-  element: <Shop />,
+  { path: "/about", element: <About />, errorElement: <Errors /> },
 
-  },
+  { path: "/shop", element: <Shop /> },
 
-  { path:"/pages",
-  element: <Pages />,
+  { path: "/pages", element: <Pages /> },
 
-  },
- 
-  { path:"/blog",
-  element: <Blog/>,
+  { path: "/blog", element: <Blog /> },
+  { path: "/contact", element: <Contact /> },
 
-  },
-  { path:"/contact",
-  element: <Contact />,
+  { path: "/login", element: <Login /> },
 
-  },
-
-]
-},
-  
-
-  { path:"/login",
-  element: <Login />,
-
-  },
-
- 
-  { path:"/register",
-  element: <Register/>,
-
-  },
-
-
-
+  { path: "/register", element: <Register /> },
 ]);
+
 function App() {
   return (
-    <RouterProvider router={router}> 
-    <div className="App">
-     
-    </div>
-    </RouterProvider>
+    <>
+      <RouterProvider router={router}>
+        <div className="App"></div>
+      </RouterProvider>
+    </>
   );
 }
 
