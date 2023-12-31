@@ -11,6 +11,7 @@ const Home = () => {
       <Header />
       <Navbar />
       <Hero />
+
       <CardComponent />
       <Footer />
     </>
