@@ -1,12 +1,18 @@
-import React from "react";
+import { React, useState } from "react";
 
 import { FaBasketShopping } from "react-icons/fa6";
-import { FaSearch, FaHeart } from "react-icons/fa";
+import { FaSearch, FaHeart, FaBars } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
 import { NavLink, Link } from "react-router-dom";
 import Navlinks from "./Navlinks";
 
 const Navbar = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
+  const handleMenuToggle = () => {
+    setIsMenuOpen((prevIsMenuOpen) => !prevIsMenuOpen);
+  };
+
   return (
     <nav className="bg-base-200">
       <div className="navbar align-element  ">
@@ -19,12 +25,22 @@ const Navbar = () => {
             Bandage
           </NavLink>
 
-          <div className="navbar-center sm:text-xl flex-col">
-            <ul className="menu menu-horizontal grid grid-cols-6 gap-2 pl-6 sm:text-xl flex-col">
-              <Navlinks className="flex sm:text-xl flex-col" />
+          <div className="navbar-center  lg:flex sm:text-xl flex flex-col">
+            <label
+              tabIndex={0}
+              className="btn btn-ghost lg:hidden sm:text-xl flex-col md:hidden"
+              onClick={handleMenuToggle}
+            >
+              <FaBars className="h-6 w-6" />
+            </label>
+            <ul
+              className={`lg:menu-horizontal menu ${
+                isMenuOpen ? "block sm:flex" : "hidden sm:flex"
+              } pl-6 sm:text-xl flex-col  `}
+            >
+              <Navlinks />
             </ul>
           </div>
-
           <NavLink className="flex py-1 gap-1 justify-end ">
             <div className=" flex items-center max-sm:flex-col max-sm:text-2xl">
               <div className="items-center flex gap-1">
