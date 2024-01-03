@@ -1,12 +1,11 @@
-import React from 'react';
-import Products from './Shop/ProductsCard';
-
+import React from "react";
+import { ProductsGrid } from "../components/ProductsList";
 const Shop = () => {
   return (
-
-      <Products />
-    
-  )
-}
+    <>
+      <ProductsGrid />
+    </>
+  );
+};
 
 export default Shop;
