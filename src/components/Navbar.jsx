@@ -36,7 +36,7 @@ const Navbar = () => {
             <ul
               className={`lg:menu-horizontal menu ${
                 isMenuOpen ? "block sm:flex" : "hidden sm:flex"
-              } pl-6 sm:text-xl flex-col  `}
+              } pl-6 sm:text-xl gap-6 flex-row  `}
             >
               <Navlinks />
             </ul>

@@ -21,7 +21,7 @@ const CarouselBlock = () => {
   };
 
   return (
-    <div className="relative  sm:inline-block mx-auto">
+    <div className="relative w-full h-full  sm:inline-block mx-auto">
       <div className="absolute top-1/2 left-0 transform -translate-y-1/2 flex items-center">
         <button
           onClick={handlePrevClick}
@@ -44,7 +44,7 @@ const CarouselBlock = () => {
         alt={`Slide ${currentImageIndex + 1}`}
         className="max-w-full h-auto"
       />
-      {/* Görselin tam ortasına yerleştirilmiş <p> etiketleri */}
+
       <p className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-white md:text-5xl font-extrabold sm:inline-block mx-auto sm:text-xl sm:text-70 ">
         BLACK FRIDAY
       </p>
