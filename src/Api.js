@@ -1,15 +1,6 @@
 import axios from "axios";
 
-export const createAxiosInstance = () => {
-  const token = localStorage.getItem("token");
-  return axios.create({
-    baseURL: "https://workintech-fe-ecommerce.onrender.com/",
-    headers: token ? { Authorization: token } : {},
-  });
-};
-
-export let AxiosInstance = createAxiosInstance();
-
-export const renewAxiosInstance = () => {
-  AxiosInstance = createAxiosInstance();
-};
+const productionUrl = "https://workintech-fe-ecommerce.onrender.com/";
+export const customFetch = axios.create({
+  baseURL: productionUrl,
+});
