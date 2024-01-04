@@ -11,7 +11,9 @@ const Home = () => {
       <Header />
       <Navbar />
       <Hero />
-
+      <>
+        <Outlet />
+      </>
       <CardComponent />
       <Footer />
     </>

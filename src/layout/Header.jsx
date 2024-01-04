@@ -12,7 +12,7 @@ const Header = () => {
     <div
       style={{
         display: "flex",
-        width: "1440px",
+        width: "1345px",
         padding: "0px 24px",
         justifyContent: "space-between",
         alignItems: "flex-start",

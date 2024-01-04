@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom"; // React Router'dan Link ekleyin
+import { Link } from "react-router-dom";
 import carusel1 from "../assets/carusel1.jpg";
 import carusel2 from "../assets/carusel2.jpg";
 
