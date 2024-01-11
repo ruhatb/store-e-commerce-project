@@ -1,10 +1,13 @@
-import { SET_STORE } from "../Actions/storeActions";
+const initialState = {
+  sellerStore: {},
+};
 
-export const storeReducer = (state = { store: {} }, action) => {
+const storeReducer = (state = initialState, action) => {
   switch (action.type) {
-    case SET_STORE:
-      return { ...state, store: action.payload };
+    // handle actions for store reducer
     default:
       return state;
   }
 };
+
+export default storeReducer;

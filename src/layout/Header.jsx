@@ -12,8 +12,9 @@ const Header = () => {
     <div
       style={{
         display: "flex",
-        width: "1345px",
-        padding: "0px 24px",
+        height: "35px",
+        width: "1340px",
+        padding: "1px 24px",
         justifyContent: "space-between",
         alignItems: "flex-start",
         flexShrink: 0,

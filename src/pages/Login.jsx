@@ -1,50 +1,84 @@
+// LoginFormWithTailwind1.js
 import React from "react";
-import FormInput from "../components/FormInput";
-import SubmitButton from "../components/SubmitButton";
-import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { login } from "../store/Actions/thunkActions";
 
-const Login = () => {
+import "tailwindcss/tailwind.css"; // Import your Tailwind CSS file
+
+const LoginFormWithTailwind1 = () => {
+  const { register, handleSubmit, errors } = useForm();
+  const dispatch = useDispatch();
+
+  const onSubmit = async (data) => {
+    try {
+      // Dispatch the login thunk action
+      await dispatch(login(data.email, data.password));
+      // Redirect user to home page (use react-router-dom for navigation)
+      // history.push('/home');
+    } catch (error) {
+      console.error("Login failed:", error);
+      // Show error message (use toaster library)
+    }
+  };
+
   return (
-    <section className="h-screen flex items-center justify-center">
-      <form method="post" className="bg-blue-300 p-6 w-96 rounded-md shadow-md">
-        <h4 className="text-3xl font-bold mb-4">LOGIN</h4>
-        <FormInput
-          type="email"
-          label="email="
-          name="identifier"
-          value="name@mail.com"
-          className="border-2 border-gray-500 rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300"
-        />
-
-        <FormInput
-          type="password"
-          label="password="
-          name="password"
-          value="secret"
-          className="border-2 border-gray-500 rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300"
-        />
-        <div className="mt-4">
-          <SubmitButton text="Login" />
-          <button
-            type="button"
-            className="bg-blue-800 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none focus:shadow-outline ml-2"
+    <div className="max-w-md mx-auto p-6 bg-white rounded-md shadow-md">
+      <h2 className="text-2xl font-semibold mb-4">Login</h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="email"
           >
-            Continue as a guest
-          </button>
-          <p className="mt-4 text-gray-900 ml-2">
-            Not a member yet ?{" "}
-            <Link
-              to="/register"
-              className="ml-2 line-clamp-2 capitalize text-violet-500 text-xl"
-            >
-              {" "}
-              Register{" "}
-            </Link>
-          </p>
+            Email:
+          </label>
+          <input
+            className="w-full px-3 py-2 border rounded-md"
+            type="text"
+            name="email"
+            ref={register({
+              required: "Email is required",
+              pattern: {
+                value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i,
+                message: "Invalid email address",
+              },
+            })}
+          />
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
+          )}
         </div>
+
+        <div className="mb-4">
+          <label
+            className="block text-gray-700 text-sm font-bold mb-2"
+            htmlFor="password"
+          >
+            Password:
+          </label>
+          <input
+            className="w-full px-3 py-2 border rounded-md"
+            type="password"
+            name="password"
+            ref={register({ required: "Password is required" })}
+          />
+          {errors.password && (
+            <p className="text-red-500 text-sm mt-1">
+              {errors.password.message}
+            </p>
+          )}
+        </div>
+
+        <button
+          className="bg-blue-500 text-white px-4 py-2 rounded-md hover:bg-blue-600"
+          type="submit"
+        >
+          Login
+        </button>
       </form>
-    </section>
+    </div>
   );
 };
 
-export default Login;
+export default LoginFormWithTailwind1;

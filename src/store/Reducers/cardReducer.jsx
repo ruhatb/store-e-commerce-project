@@ -1,33 +1,15 @@
-import {
-  ADD_TO_CART,
-  REMOVE_FROM_CART,
-  SET_ADDRESS,
-  SET_PAYMENT,
-  CLEAR_CART,
-} from "../Actions/cardActions";
-
 const initialState = {
   cart: [],
   payment: {},
   address: {},
 };
 
-export const shoppingCartReducer = (state = initialState, action) => {
+const shoppingCartReducer = (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TO_CART:
-      return { ...state, cart: [...state.cart, action.payload] };
-    case REMOVE_FROM_CART:
-      return {
-        ...state,
-        cart: state.cart.filter((item) => item.product.id !== action.payload),
-      };
-    case SET_PAYMENT:
-      return { ...state, payment: action.payload };
-    case SET_ADDRESS:
-      return { ...state, address: action.payload };
-    case CLEAR_CART:
-      return { ...state, cart: initialState.cart };
+    // handle actions for shopping cart reducer
     default:
       return state;
   }
 };
+
+export default shoppingCartReducer;

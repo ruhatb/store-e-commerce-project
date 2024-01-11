@@ -1,26 +1,29 @@
-import { LOGIN_USER, LOGOUT_USER } from "../actions/userActions";
-
 const initialState = {
-  user: {
-    name: null,
-    email: null,
-    token: null,
-    role_id: "3",
-  },
+  user: null,
   isLoggedIn: false,
+  error: null,
 };
 
-export const userReducer = (state = initialState, action) => {
+const userReducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOGIN_USER:
-      return { ...state, user: action.payload, isLoggedIn: true };
-    case LOGOUT_USER:
+    case "LOGIN_SUCCESS":
       return {
         ...state,
-        user: {},
-        isLoggedIn: false,
+        user: action.user,
+        isLoggedIn: true,
+        error: null,
       };
+    case "LOGIN_FAILURE":
+      return {
+        ...state,
+        user: null,
+        isLoggedIn: false,
+        error: action.error,
+      };
+    // handle other actions for user reducer
     default:
       return state;
   }
 };
+
+export default userReducer;
