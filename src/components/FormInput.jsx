@@ -8,10 +8,11 @@ const FormInput = ({ label, name, type, value, placeholder }) => {
       </label>
 
       <input
-        type={type}
+        id={name}
         name={name}
-        value={value}
         placeholder={placeholder}
+        type={type}
+        value={value}
         className="border-2 border-gray-500 rounded-md p-2 focus:outline-none focus:ring focus:border-blue-300  "
       />
     </div>
