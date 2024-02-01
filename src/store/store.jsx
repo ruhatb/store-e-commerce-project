@@ -1,8 +1,8 @@
-import { configureStore } from "@reduxjs/toolkit";
-import userReducer from "../features/user/userSlice";
+import { applyMiddleware, legacy_createStore as createStore } from "redux";
+import { reducers } from "./reducers/index.js";
+import thunk from "redux-thunk";
+import logger from "redux-logger";
 
-export const store = configureStore({
-  reducer: {
-    user: userReducer,
-  },
-});
+const middlewares = applyMiddleware(thunk, logger);
+
+export const store = createStore(reducers, middlewares);

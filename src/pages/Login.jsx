@@ -9,7 +9,6 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    // Form verilerini işleme
     console.log(data);
   };
 

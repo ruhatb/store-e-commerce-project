@@ -1,36 +1,25 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { loginAPI } from "."; // Login API'yi buraya ekleyin
+export const CHANGE_NAME = "CHANGE_NAME";
+export const CHANGE_SURNAME = "CHANGE_SURNAME";
+export const CHANGE_EMAIL = "CHANGE_EMAIL";
+export const CHANGE_PASSWORD = "CHANGE_PASSWORD";
+export const CHANGE_ROLE = "CHANGE_ROLE";
 
-export const loginUser = createAsyncThunk(
-  "user/loginUser",
-  async (credentials) => {
-    const response = await loginAPI(credentials); // API'yi buraya ekleyin
-    return response.data;
-  }
-);
+export const changeName = (name) => {
+  return { type: CHANGE_NAME, payload: name };
+};
 
-const userSlice = createSlice({
-  name: "user",
-  initialState: {
-    userInfo: null,
-    status: "idle",
-    error: null,
-  },
-  reducers: {},
-  extraReducers: (builder) => {
-    builder
-      .addCase(loginUser.pending, (state) => {
-        state.status = "loading";
-      })
-      .addCase(loginUser.fulfilled, (state, action) => {
-        state.status = "succeeded";
-        state.userInfo = action.payload;
-      })
-      .addCase(loginUser.rejected, (state, action) => {
-        state.status = "failed";
-        state.error = action.error.message;
-      });
-  },
-});
+export const changeSurname = (surname) => {
+  return { type: CHANGE_SURNAME, payload: surname };
+};
 
-export default userSlice.reducer;
+export const changeEmail = (mail) => {
+  return { type: CHANGE_EMAIL, payload: mail };
+};
+
+export const changePassword = (password) => {
+  return { type: CHANGE_PASSWORD, payload: password };
+};
+
+export const changeRole = (role) => {
+  return { type: CHANGE_ROLE, payload: role };
+};
